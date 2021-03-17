@@ -1,0 +1,358 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "Supporter": {
+            "type": "object",
+            "properties": {
+                "SourceDonorId": {
+                    "type": "string"
+                },
+                "FirstName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "MiddleName": {
+                    "type": "string"
+                },
+                "LastName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "Source": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50
+                },
+                "SubSource": {
+                    "type": "string",
+                    "enum": [
+                        "GGP"
+                    ]
+                },
+                "MobilePhone": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 20
+                },
+                "Email": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 150,
+                    "format": "email"
+                },
+                "Gender": {
+                    "type": "string"
+                },
+                "BirthDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "MailingAddressline1": {
+                    "type": "string"
+                },
+                "MailingAddressline2": {
+                    "type": "string"
+                },
+                "MailingPostalCode": {
+                    "type": "string"
+                },
+                "MailingCity": {
+                    "type": "string"
+                },
+                "MailingState": {
+                    "type": "string"
+                },
+                "MailingCountry": {
+                    "type": "string"
+                },
+                "filler1": {
+                    "type": "string"
+                },
+                "filler2": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FirstName",
+                "LastName",
+                "Source",
+                "Email"
+            ]
+        },
+        "consent": {
+            "type": "object",
+            "properties": {
+                "EmailConsent": {
+                    "type": "boolean"
+                },
+                "EmailMessage": {
+                    "type": "string"
+                },
+                "PhoneConsent": {
+                    "type": "boolean"
+                },
+                "PhoneMessage": {
+                    "type": "string"
+                },
+                "WhatsappConsent": {
+                    "type": "boolean"
+                },
+                "WhatsappMessage": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "EmailConsent",
+                "PhoneConsent"
+            ]
+        },
+        "SourceMetadata": {
+            "type": "object",
+            "properties": {
+                "Source": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                },
+                "GGPPageID": {
+                    "type": "string"
+                },
+                "SourceURL": {
+                    "type": "string",
+                    "format": "uri-reference"
+                },
+                "IPAddress": {
+                    "type": "string",
+                    "format": "ipv4"
+                },
+                "OS": {
+                    "type": "string"
+                },
+                "Browser": {
+                    "type": "string"
+                },
+                "Mobile": {
+                    "type": "string"
+                },
+                "ScreenSize": {
+                    "type": "string"
+                },
+                "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                },
+                "CountryGroupCode": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "enum": [
+                        "Vietnam",
+                        "Belarus",
+                        null
+                    ]
+                },
+                "CampaignID": {
+                    "type": "string",
+                    "default": "7011i000000knfzAAA"
+                }
+            },
+            "required": [
+                "Source",
+                "language_code",
+                "CountryGroupCode",
+                "CampaignID"
+            ]
+        },
+        "TransactionDetails": {
+            "type": "object",
+            "properties": {
+                "ThirdPartyCustomerID": {
+                    "type": "string"
+                },
+                "TransactionType": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "default": "Donation"
+                },
+                "TransactionSubType": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "enum": [
+                        "OneOff",
+                        "SubscriptionWithCharge",
+                        "SubscriptionWithoutCharge",
+                        "Charge"
+                    ]
+                },
+                "Frequency": {
+                    "type": "integer",
+                    "default": 1
+                },
+                "TransactionAmount": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "TransactionDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "OrderID": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "Status": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "PledgeSubscriptionID": {
+                    "type": "string"
+                },
+                "PaymentToken": {
+                    "type": "string"
+                },
+                "PaymentTransactionID": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "PledgeAmountType": {
+                    "type": "string"
+                },
+                "PledgeStartDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "PledgeEndDate": {
+                    "type": "string"
+                },
+                "PledgeCollectionDay": {
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 30
+                },
+                "CurrencyISOCode": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 10
+                },
+                "PaymentGateway": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "enum": [
+                        "WebPay",
+                        "NAPAS"
+                    ]
+                },
+                "PaymentMethod": {
+                    "$ref": "#/definitions/payment_methods"
+                },
+                "PaymentSubMethod": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "enum": [
+                        "Credit Card"
+                    ]
+                }
+            },
+            "if": {
+                "properties": {
+                    "TransactionSubType": {
+                        "const": "Subscription"
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "Frequency",
+                    "PledgeSubscriptionID",
+                    "PaymentToken",
+                    "PledgeAmountType",
+                    "PledgeStartDate",
+                    "PledgeCollectionDay"
+                ]
+            },
+            "required": [
+                "TransactionType",
+                "TransactionSubType",
+                "TransactionAmount",
+                "TransactionDate",
+                "OrderID",
+                "Status",
+                "PaymentTransactionID",
+                "CurrencyISOCode",
+                "PaymentGateway",
+                "PaymentMethod",
+                "PaymentSubMethod"
+            ]
+        },
+        "ThirdPartyMetadata": {
+            "type": "object",
+            "properties": {
+                "PaymentCardNetwork": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "PaymentCardLast4": {
+                    "type": "string"
+                },
+                "PaymentCardExpirationMonth": {
+                    "type": "string"
+                },
+                "PaymentCardExpirationYear": {
+                    "type": "string"
+                },
+                "PaymentMethod": {
+                    "$ref": "#/definitions/payment_methods"
+                }
+            }
+        }
+    },
+    "definitions": {
+        "payment_methods": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "enum": [
+                "Credit Card",
+                "Check",
+                "ACH/EFT"
+            ]
+        }
+    },
+    "if": {
+        "properties": {
+            "TransactionDetails": {
+                "const": {
+                    "TransactionSubType": "Charge"
+                }
+            }
+        }
+    },
+    "then": {
+        "required": [
+            "TransactionDetails",
+            "ThirdPartyReference"
+        ]
+    },
+    "else": {
+        "required": [
+            "Supporter",
+            "consent",
+            "SourceMetadata",
+            "TransactionDetails",
+            "ThirdPartyMetadata"
+        ]
+    }
+}
