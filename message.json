@@ -150,8 +150,8 @@
                     "minLength": 1,
                     "maxLength": 50,
                     "enum": [
-                        "Vietnam",
-                        "Belarus",
+                        "BY",
+                        "VN",
                         null
                     ]
                 },
